@@ -1,0 +1,19 @@
+# Python-related files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment variables and configurations
+.env
+*.env
+instance/
+config.py
+
+# Virtual environments
+venv/
+env/
+tele_bot_env/
+
+# Token file (containing sensitive information)
+token.txt
