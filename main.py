@@ -5,6 +5,7 @@ import acad_mat
 from api.notes_sem7 import pds_lab
 
 # Read the token from the file
+'''
 try:
     with open("token.txt", "r") as f:
         TOKEN = f.read().strip()
@@ -14,6 +15,8 @@ except FileNotFoundError:
 except Exception as e:
     print(f"An error occurred: {e}")
     exit(1)
+'''
+TOKEN = "7402411596:AAEndin1il5HNeaIHN1V36QlxQwrN80S4nM"
 
 # Define command handlers
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
