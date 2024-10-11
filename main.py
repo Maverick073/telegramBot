@@ -2,7 +2,7 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 import os
 import acad_mat
-from api.notes_sem7 import pds_lab 
+from api.notes_sem7 import pds_lab
 
 # Read the token from the file
 try:
