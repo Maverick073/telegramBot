@@ -4,6 +4,7 @@ import os
 import acad_mat
 from api.notes_sem7 import pds_lab
 from api.notes_sem7 import bda_syllabus,iot_syllabus,fswd_syllabus 
+from api.notes_sem7 import cloud_notes,fswd_notes
 
 # Read the token from the file
 '''
@@ -35,46 +36,42 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE):
             
             acad_mat/
                 │
-                ├── bda/
-                │   ├── unit1/
-                │   ├── unit2/
-                │   ├── unit3/
-                │   ├── unit4/
+                ├── /bda
+                │   
+                ├── /cloud_notes
                 │
-                ├── cloud/
-                │   ├── unit1/
-                │   ├── unit2/
-                │   ├── unit3/
-                │   ├── unit4/
+                ├── /fswd
+                │        
+                ├── /iot
+                │   ├── /unit1
+                │   ├── /unit2
+                │   ├── /unit3
+                │   ├── /unit4
                 │
-                ├── fswd/
-                │   ├── unit1/
-                │   ├── unit2/
-                │   ├── unit3/
-                │   ├── unit4/
-                │
-                ├── iot/
-                │   ├── unit1/
-                │   ├── unit2/
-                │   ├── unit3/
-                │   ├── unit4/
-                │
-                ├── iot_lab/
-                │   └── your_file.pdf
+                ├── /iot_lab
+                │   
                 │
                 ├── pds/
-                │   ├── unit1/
-                │   ├── unit2/
-                │   ├── unit3/
-                │   ├── unit4/
+                │   ├── /unit1
+                │   ├── /unit2
+                │   ├── /unit3
+                │   ├── /unit4
                 │
-                ├──pds_lab
-                │   └──/pds_lab.pdf
+                ├── /pds_lab
+                │   
                 │
-                └── syllabus/
-                    ├── /iot_syllabus.pdf
-                    ├── /bda_syllabus.pdf
-                    ├── /fswd_syllabus.pdf
+                ├── /syllabus
+                │   ├── iot_syllabus.pdf
+                │   ├── bda_syllabus.pdf
+                │   ├── fswd_syllabus.pdf
+                │
+                └── books/
+                    ├── bda/
+                    ├── cloud/
+                    ├── fswd/
+                    ├── iot/
+                    └── pds/
+                    
             """
     )
 
@@ -96,5 +93,7 @@ application.add_handler(CommandHandler("pds_lab",pds_lab))
 application.add_handler(CommandHandler("bda_syllabus",bda_syllabus))
 application.add_handler(CommandHandler("iot_syllabus",iot_syllabus))
 application.add_handler(CommandHandler("fswd_syllabus",fswd_syllabus))
+application.add_handler(CommandHandler("cloud_notes",cloud_notes))
+application.add_handler(CommandHandler("fswd_notes",fswd_notes))
 # Run the bot
 application.run_polling()
