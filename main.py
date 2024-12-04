@@ -1,24 +1,15 @@
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 import os
-import acad_mat
-from api.notes_sem7 import pds_lab
-from api.notes_sem7 import bda_syllabus,iot_syllabus,fswd_syllabus 
-from api.notes_sem7 import cloud_notes,fswd_notes
+from acad_mat import bda , cloud ,fswd , iot, iot_lab,pds,pds_lab,syllabus
+from acad_mat.syllabus import *
+from api.notes_sem7 import * 
+import os
 
-# Read the token from the file
-'''
-try:
-    with open("token.txt", "r") as f:
-        TOKEN = f.read().strip()
-except FileNotFoundError:
-    print("Error: The token file was not found.")
-    exit(1)
-except Exception as e:
-    print(f"An error occurred: {e}")
-    exit(1)
-'''
-TOKEN = "7402411596:AAEndin1il5HNeaIHN1V36QlxQwrN80S4nM"
+# Read the token 
+TOKEN = os.getenv("TOKEN")
+if not TOKEN:
+    raise ValueError("Telegram Bot Token is not set in the environment variables.")
 
 # Define command handlers
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -35,42 +26,29 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE):
             /contact    ->  Information about contact
             
             acad_mat/
-                │
-                ├── /bda
-                │   
-                ├── /cloud_notes
-                │
-                ├── /fswd
-                │        
-                ├── /iot
-                │   ├── /unit1
-                │   ├── /unit2
-                │   ├── /unit3
-                │   ├── /unit4
-                │
-                ├── /iot_lab
-                │   
-                │
-                ├── pds/
-                │   ├── /unit1
-                │   ├── /unit2
-                │   ├── /unit3
-                │   ├── /unit4
-                │
-                ├── /pds_lab
-                │   
-                │
-                ├── /syllabus
-                │   ├── iot_syllabus.pdf
-                │   ├── bda_syllabus.pdf
-                │   ├── fswd_syllabus.pdf
-                │
-                └── books/
-                    ├── bda/
-                    ├── cloud/
-                    ├── fswd/
-                    ├── iot/
-                    └── pds/
+                    │
+                    ├── /bda_notes
+                    │   
+                    ├── /cloud_notes
+                    │
+                    ├── /fswd_notes
+                    │        
+                    ├── /iot_notes
+                    │      
+                    ├── /iot_lab
+                    │   
+                    ├── /pds_notes   
+                    │
+                    ├── /pds_lab  
+                    │
+                    ├── syllabus
+                    │   ├── /iot_syllabus
+                    │   ├──/bda_syllabus
+                    │   ├── /cloud_syllabus
+                    │   ├── /pds_syllabus
+                    │   ├── /fswd_syllabus
+                    |
+                    |── /cia_papers
                     
             """
     )
@@ -89,11 +67,22 @@ application.add_handler(CommandHandler("start", start))
 application.add_handler(CommandHandler("help", help))
 application.add_handler(CommandHandler("content", content))
 application.add_handler(CommandHandler("contact", contact))
+
 application.add_handler(CommandHandler("pds_lab",pds_lab))
+application.add_handler(CommandHandler("iot_lab",iot_lab))
+
+application.add_handler(CommandHandler("cloud_notes",cloud_notes))
+application.add_handler(CommandHandler("fswd_notes",fswd_notes))
+application.add_handler(CommandHandler("bda_notes",bda_notes))
+application.add_handler(CommandHandler("pds_notes",pds_notes))
+application.add_handler(CommandHandler("iot_notes",iot_notes))
+
 application.add_handler(CommandHandler("bda_syllabus",bda_syllabus))
 application.add_handler(CommandHandler("iot_syllabus",iot_syllabus))
 application.add_handler(CommandHandler("fswd_syllabus",fswd_syllabus))
-application.add_handler(CommandHandler("cloud_notes",cloud_notes))
-application.add_handler(CommandHandler("fswd_notes",fswd_notes))
+application.add_handler(CommandHandler("cloud_syllabus",cloud_syllabus))
+application.add_handler(CommandHandler("pds_syllabus",pds_syllabus))
+
+application.add_handler(CommandHandler("cia_papers",cia_papers))
 # Run the bot
 application.run_polling()
