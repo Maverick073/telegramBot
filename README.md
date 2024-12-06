@@ -18,3 +18,8 @@ Steps to create this Bot :
 
 
 Thank You 😄
+
+
+## Important things to be noted when you clone this repo . 
+1. Create a .env file and store the telegram bot token as TOKEN = <token id>
+2. Run the main.py file to start the servie . 
