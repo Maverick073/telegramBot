@@ -17,9 +17,14 @@ Steps to create this Bot :
 8. Run the main.py and check if the bot is working by requesting the bot in telegram . 
 
 
-Thank You 😄
+
 
 
 ## Important things to be noted when you clone this repo . 
 1. Create a .env file and store the telegram bot token as TOKEN = <token id>
 2. Run the main.py file to start the servie . 
+
+
+(Note : I don't own any of these materials and the entire content material belongs to my college)
+
+Thank You 😄
